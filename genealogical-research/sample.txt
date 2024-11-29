@@ -1,0 +1,11 @@
+ANCESTORS of Casper Ghost
+  John Doe January 7, 1599 -
+    Adam Doe
+    Jane Doe
+  Mary Worth May 18, 1666 - Jan 3, 1959
+    Adam Doe
+    Jane Doe
+
+DESCENDANTS of John Doe
+  Casper Ghost Jan 2, 1959 -
+
