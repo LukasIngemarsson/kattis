@@ -61,7 +61,7 @@ struct FenwickTree {
     @param i: The index of the element.
     @param d: The value to be added to the element.
 
-    @note Time complexity: `O(log(n)`, where `n` is the number of elements in the tree.
+    @note Time complexity: `O(log(n))`, where `n` is the number of elements in the tree.
     */
     void add(int i, int d) { 
         // after each iteration, add the last set bit to i
