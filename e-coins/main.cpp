@@ -18,6 +18,8 @@ int main() {
         
         int ans = BND;
         for (int lvl = 0; lvl < BND; ++lvl) {
+            if (2 * lvl * lvl > S * S) break;
+
             for (int r = lvl; r < BND; ++r) {
                 for (const auto& [cc, cr] : coins) {
                     if (r - cr < 0 || lvl - cc < 0) continue;
