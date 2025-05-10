@@ -32,7 +32,7 @@ int main() {
                             if (dr == 0 && dc == 0) continue;
                             
                             for (int i = 1; !oob(r + i * dr, c + i * dc); ++i) {
-                                if (grid[r+i*dr][c+i*dr] == '*') return false;
+                                if (grid[r+i*dr][c+i*dc] == '*') return false;
                             }
                         }
                     }
