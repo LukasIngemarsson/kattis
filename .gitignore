@@ -1,5 +1,6 @@
 **/main
-**/main.exe
+*.exe
+*.class
 **/target/
 **/.vscode/
 UNFINISHED/
