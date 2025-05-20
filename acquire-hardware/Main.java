@@ -9,13 +9,13 @@ import java.util.StringTokenizer;
 
 class Main {
     public static void main(String[] args) {
-        Kattio in = new Kattio(System.in);
+        Kattio io = new Kattio(System.in);
 
-        int h = in.getInt(), w = in.getInt(); 
+        int h = io.getInt(), w = io.getInt(); 
 
         char[][] grid = new char[h][w];
         for (int r = 0; r < h; ++r) {
-            String row = in.getWord();
+            String row = io.getWord();
             grid[r] = row.toCharArray();
         }
 
@@ -33,63 +33,64 @@ class Main {
             }
         }
 
-        System.out.println(dp[h-1][w-1]);
+        io.println(dp[h-1][w-1]);
 
-        in.close();
-    }
-}
-
-class Kattio extends PrintWriter {
-    public Kattio(InputStream i) {
-	super(new BufferedOutputStream(System.out));
-	r = new BufferedReader(new InputStreamReader(i));
-    }
-    public Kattio(InputStream i, OutputStream o) {
-	super(new BufferedOutputStream(o));
-	r = new BufferedReader(new InputStreamReader(i));
+        io.close();
     }
 
-    public boolean hasMoreTokens() {
-	return peekToken() != null;
-    }
+    static class Kattio extends PrintWriter {
+        public Kattio(InputStream i) {
+            super(new BufferedOutputStream(System.out));
+            r = new BufferedReader(new InputStreamReader(i));
+        }
+        public Kattio(InputStream i, OutputStream o) {
+            super(new BufferedOutputStream(o));
+            r = new BufferedReader(new InputStreamReader(i));
+        }
 
-    public int getInt() {
-	return Integer.parseInt(nextToken());
-    }
+        public boolean hasMoreTokens() {
+            return peekToken() != null;
+        }
 
-    public double getDouble() { 
-	return Double.parseDouble(nextToken());
-    }
+        public int getInt() {
+            return Integer.parseInt(nextToken());
+        }
 
-    public long getLong() {
-	return Long.parseLong(nextToken());
-    }
+        public double getDouble() { 
+            return Double.parseDouble(nextToken());
+        }
 
-    public String getWord() {
-	return nextToken();
-    }
+        public long getLong() {
+            return Long.parseLong(nextToken());
+        }
 
-    private BufferedReader r;
-    private String line;
-    private StringTokenizer st;
-    private String token;
+        public String getWord() {
+            return nextToken();
+        }
 
-    private String peekToken() {
-	if (token == null) 
-	    try {
-		while (st == null || !st.hasMoreTokens()) {
-		    line = r.readLine();
-		    if (line == null) return null;
-		    st = new StringTokenizer(line);
-		}
-		token = st.nextToken();
-	    } catch (IOException e) { }
-	return token;
-    }
+        private BufferedReader r;
+        private String line;
+        private StringTokenizer st;
+        private String token;
 
-    private String nextToken() {
-	String ans = peekToken();
-	token = null;
-	return ans;
+        private String peekToken() {
+            if (token == null) {
+                try {
+                    while (st == null || !st.hasMoreTokens()) {
+                        line = r.readLine();
+                        if (line == null) return null;
+                        st = new StringTokenizer(line);
+                    }
+                    token = st.nextToken();
+                } catch (IOException e) {}
+            }
+            return token;
+        }
+
+        private String nextToken() {
+            String ans = peekToken();
+            token = null;
+            return ans;
+        }
     }
 }
