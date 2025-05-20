@@ -6,11 +6,18 @@ typedef long long ll;
 
 /* A class for modular arithmetic operations. */
 struct ModularArithmetic {
+public:
     ll m; // the modulus
 
-    ModularArithmetic(ll m) : m(m) {}
+    /* Modular multiplication. */
+    function<ll(ll, ll)> mult;
 
-    void set_mod(ll m) { this->m = m; };
+    ModularArithmetic(ll m) : m(m) { assign_mult_type(); }
+
+    void set_mod(ll m) { 
+        this->m = m; 
+        assign_mult_type();
+    };
     
     /* Modular addition. */
     ll add(ll a, ll b) {
@@ -24,20 +31,15 @@ struct ModularArithmetic {
         return ((a % m - b % m) + m) % m;
     }
 
-    /* Modular multiplication. */
-    ll mult(ll a, ll b) {
-        return ((a % m) * (b % m)) % m;
-    }
-
     /* Modular exponentation. Time complexity: `O(log(n))`.*/
     ll pow(ll a, ll n) {
         a %= m;
         ll res = 1;
         while (n > 0) {
             if (n % 2 != 0) {
-                res = res * a % m;
+                res = mult(res, a) % m;
             }
-            a = a * a % m;
+            a = mult(a, a) % m;
             n /= 2;
         }
         return res;
@@ -74,7 +76,23 @@ struct ModularArithmetic {
         return mult(a, inv_b);
     }
 
-    /* Bit-wise modulus multiplication to avoid integer overflow. Time complexity: `O(log(b))`. */
+private:
+    /* Sets the multiplication type depending on if integer overflow is possible. */
+    void assign_mult_type() {
+        if (this->m > sqrt(LONG_MAX)) {
+            mult = [this] (ll a, ll b) { return this->bw_mult(a, b); };
+        }
+        else {
+            mult = [this] (ll a, ll b) { return this->normal_mult(a, b); };
+        }
+    }
+
+    /* Normal modular multiplication. */
+    ll normal_mult(ll a, ll b) {
+        return ((a % m) * (b % m)) % m;
+    }
+
+    /* Bit-wise modular multiplication to avoid integer overflow. Time complexity: `O(log(b))`. */
     ll bw_mult(ll a, ll b) {
         ll res = 0;
         a %= m;
