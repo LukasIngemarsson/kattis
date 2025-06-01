@@ -34,10 +34,8 @@ class Main {
         }
 
         int dir = io.getInt();
-        // 0 -> rotate 0 (left)
-        // 1 -> rotate -90 (up)
-        // 2 -> rotate -180 (right)
-        // 3 -> rotate -270 (down)
+        // 0 -> rotate 0 (left), 1 -> rotate -90 (up), 
+        // 2 -> rotate -180 (right), 3 -> rotate -270 (down)
 
         for (int i = 0; i < dir; ++i)
             grid = rotate(grid, false);
@@ -64,9 +62,7 @@ class Main {
             if (prev != -1)
                 newRow[idx++] = prev;
 
-            for (int i = 0; i < N; ++i) {
-                grid[r][i] = newRow[i];
-            }
+            grid[r] = newRow;
         }
 
         for (int i = 0; i < dir; ++i)
