@@ -76,12 +76,12 @@ struct Point {
         return x > other.x;
     }
 
-    friend istream& operator>>(std::istream& is, Point& p) {
+    friend istream& operator>>(istream& is, Point& p) {
         is >> p.x >> p.y;
         return is;
     }
 
-    friend ostream& operator<<(std::ostream& os, const Point& p) {
+    friend ostream& operator<<(ostream& os, const Point& p) {
         os << '(' << p.x << ", " << p.y << ')';
         return os;
     }
