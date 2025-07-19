@@ -16,7 +16,7 @@ void dfs(vector<vector<char>>& grid, int r, int c) {
 }
 
 int main() {
-    std::cin.tie(0)->sync_with_stdio(false);
+    cin.tie(0)->sync_with_stdio(false);
 
     int t = 1;
     while (cin >> m >> n) {

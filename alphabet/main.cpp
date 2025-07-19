@@ -2,7 +2,7 @@
 using namespace std;
 
 int main() {
-    std::cin.tie(0)->sync_with_stdio(false);
+    cin.tie(0)->sync_with_stdio(false);
 
     string s;
     cin >> s;
