@@ -1,8 +1,0 @@
-BIRTH John Doe : January 7, 1599 : Jane Doe : Adam Doe
-BIRTH Mary Worth : May 18, 1666 : Jane Doe : Adam Doe
-BIRTH Casper Ghost : Jan 2, 1959 : Mary Worth : John Doe
-DEATH Mary Worth : Jan 3, 1959
-ANCESTORS Casper Ghost
-DESCENDANTS John Doe
-BIRTH Casper Gold : Jan 2, 1959 : Mary Worth : John Doe
-QUIT
