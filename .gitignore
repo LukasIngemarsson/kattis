@@ -3,4 +3,6 @@
 *.class
 **/target/
 **/.vscode/
-0-UNF/
+(UNF)/
+*.in
+*.txt
